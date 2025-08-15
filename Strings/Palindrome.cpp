@@ -2,22 +2,23 @@
 #include <cstring>
 using namespace std;
 
-bool isPalindrome(char name[]){
-    int start = 0;
-    int end = strlen(name) - 1;
+    bool isPalindrome(string s){
+        int start = 0;
+        int end = s.length() - 1;
 
-    bool verdict = false;
-
-    while(start <= end){
-        if(name[start++] == name[end--]){
-            verdict = true;
+        while(start <= end){
+            if(s[start] != s[end]){
+                return false;
+            }
+            else{
+                start++; end--;
+            }
         }
+        return true;
     }
-    return verdict;
-}
 
 int main(){
-    char name[20] = "noon";
+    char name[20] = "noonnoon";
 
     if(isPalindrome(name)){
         cout << "This is a Palindrome String." <<endl; 
